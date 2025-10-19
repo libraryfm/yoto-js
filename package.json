@@ -1,0 +1,51 @@
+{
+  "name": "yoto-js",
+  "version": "0.1.0",
+  "description": "Unofficial Node.js SDK for the Yoto API",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "sync-version": "bun run scripts/sync-version.ts",
+    "build": "bun run sync-version && tsup",
+    "test": "bun test",
+    "check": "biome check src",
+    "format": "biome format --write src",
+    "lint": "biome lint src",
+    "prepublishOnly": "bun run build",
+    "validate:content": "bun run test/e2e/content-lifecycle.ts",
+    "validate:groups": "bun run test/e2e/family-library-groups-lifecycle.ts",
+    "validate:images": "bun run test/e2e/family-images-lifecycle.ts",
+    "validate:readonly": "bun run test/e2e/read-only-validations.ts",
+    "validate:all": "bun run validate:content && bun run validate:groups && bun run validate:images && bun run validate:readonly"
+  },
+  "keywords": [
+    "yoto",
+    "sdk",
+    "api",
+    "client"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.6",
+    "@types/bun": "latest",
+    "tsup": "^8.5.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

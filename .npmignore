@@ -1,0 +1,14 @@
+src/
+test/
+*.test.ts
+*.spec.ts
+tsconfig.json
+tsup.config.ts
+biome.json
+.cursor/
+.git/
+.gitignore
+node_modules/
+bun.lock
+*.plan.md
+
