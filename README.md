@@ -36,7 +36,7 @@ await yoto.devices.sendCommand("device_id", { command: "play" });
 
 The SDK supports multiple authentication methods. All methods use OAuth 2.0 bearer tokens. 
 
-**Get your credentials:** Before using any authentication method, obtain your client ID and client secret from the [Yoto Developer Portal](https://yoto.dev/get-started/start-here/).
+**Get your credentials:** Before using any authentication method, obtain your client ID from the [Yoto Developer Portal](https://yoto.dev/get-started/start-here/).
 
 Choose the approach that fits your use case:
 
@@ -79,17 +79,7 @@ const yoto = new Yoto({ auth: authProvider });
 
 // The client will automatically refresh tokens as needed
 await yoto.content.listMYO(); // Works indefinitely
-
-// Alternative: Manual token management
-const yotoManual = new Yoto({ accessToken: tokens.access_token });
-// You must manually check expiration and refresh:
-if (auth.isTokenExpired(tokens.access_token)) {
-  const newTokens = await auth.refreshToken(tokens.refresh_token);
-  // Create new client with refreshed token
-}
 ```
-
-See [examples/device-auth-example.ts](examples/device-auth-example.ts) for a complete example.
 
 Learn more: [Yoto Device Code Authentication](https://yoto.dev/authentication/headless-cli-auth/)
 
@@ -127,8 +117,6 @@ const yoto = new Yoto({ auth: authProvider });
 // The client will automatically refresh tokens as needed
 await yoto.content.listMYO(); // Works indefinitely
 ```
-
-See [examples/browser-auth-example.ts](examples/browser-auth-example.ts) for a complete example.
 
 Learn more: [Yoto Browser Authentication](https://yoto.dev/authentication/browser-auth/)
 
@@ -510,11 +498,10 @@ bun run check
 
 End-to-end validation scripts test real API interactions and ensure SDK types match actual API behavior. The Yoto developer documentation isn't always accurate or complete, so these scripts validate against live endpoints.
 
-Create a `.env` file with your access token:
+Set your access token as an environment variable in .env:
 
 ```bash
-cp .env.example .env
-# Edit .env and add your YOTO_ACCESS_TOKEN
+export YOTO_ACCESS_TOKEN="your_access_token"
 ```
 
 Run validations:
