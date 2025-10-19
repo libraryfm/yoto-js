@@ -40,6 +40,14 @@
   ],
   "author": "Drew Monroe",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/libraryfm/yoto-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/libraryfm/yoto-js/issues"
+  },
+  "homepage": "https://github.com/libraryfm/yoto-js#readme",
   "devDependencies": {
     "@biomejs/biome": "^2.2.6",
     "@types/bun": "latest",
