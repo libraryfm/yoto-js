@@ -419,48 +419,6 @@ All error classes extend `YotoError` and include:
 - `type`: Error type identifier
 - `requestId`: Yoto request ID for debugging
 
-## Webhook Verification
-
-Verify webhook signatures to ensure requests are from Yoto:
-
-```typescript
-import { constructEvent } from "yoto-js";
-
-// In your webhook handler
-app.post("/webhooks", (req, res) => {
-  const signature = req.headers["yoto-signature"];
-  const payload = req.body; // Raw body as string
-
-  try {
-    const event = constructEvent(payload, signature, "webhook_secret");
-
-    // Process verified event
-    console.log(event.type, event.data);
-
-    res.sendStatus(200);
-  } catch (error) {
-    console.error("Webhook verification failed:", error.message);
-    res.sendStatus(400);
-  }
-});
-```
-
-### Testing Webhooks
-
-Generate test signatures for local testing:
-
-```typescript
-import { generateTestHeaderString } from "yoto-js";
-
-const payload = { id: "evt_123", type: "content.created", data: {} };
-const signature = generateTestHeaderString({
-  payload: JSON.stringify(payload),
-  secret: "webhook_secret",
-});
-
-// Use signature in test requests
-```
-
 ## TypeScript Support
 
 The SDK is written in TypeScript and provides full type definitions:

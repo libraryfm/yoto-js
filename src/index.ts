@@ -6,5 +6,4 @@ export {
 } from "./auth-provider.ts";
 export * from "./error.ts";
 export * from "./types/index.ts";
-export * from "./webhooks.ts";
 export { Yoto } from "./yoto.ts";
