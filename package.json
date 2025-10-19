@@ -1,6 +1,6 @@
 {
   "name": "yoto-js",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Unofficial Node.js SDK for the Yoto API",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "sync-version": "bun run scripts/sync-version.ts",
-    "build": "bun run sync-version && tsup",
+    "build": "tsup",
     "test": "bun test",
     "check": "biome check src",
     "format": "biome format --write src",
