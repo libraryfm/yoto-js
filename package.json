@@ -38,7 +38,7 @@
     "api",
     "client"
   ],
-  "author": "",
+  "author": "Drew Monroe",
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^2.2.6",
