@@ -48,7 +48,7 @@ async function generatePKCEChallenge(verifier: string): Promise<string> {
 /**
  * Decode JWT payload without verification
  */
-export function decodeJWT(token: string): {
+function decodeJWT(token: string): {
   exp?: number;
   [key: string]: unknown;
 } {

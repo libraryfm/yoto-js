@@ -9,7 +9,7 @@ import { IconsResource } from "./resources/icons.ts";
 import { MediaResource } from "./resources/media.ts";
 import type { YotoConfig } from "./types";
 
-export interface YotoAuthConfig {
+interface YotoAuthConfig {
   accessToken?: string;
   auth?: AuthProvider;
 }
